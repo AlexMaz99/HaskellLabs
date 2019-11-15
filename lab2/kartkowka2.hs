@@ -62,8 +62,7 @@ sumAbs' = loop 0
     where loop acc []   = acc
           loop acc (x:xs) = loop ( abs(x) + acc) xs
 
--- 12. Co pokaże  f1 :: Num t => t -> t -> (t,t) -> t   :t f 1 2
+-- 12. Co pokaże :t f 1 2
+--     f1 :: Num t => t -> t -> (t,t) -> t
 
-f1 :: Num t => t -> t -> (t,t) -> t
-f1 x y (a,b) = a+y+b+x
--- a :: Num t => (t,t) -> t
+-- f1 :: Num t => (t,t) -> t
