@@ -1,20 +1,3 @@
--- zagadnienia do kartkówki wzorzec collection pipeline, 
--- działanie funkcji wyższego rzędu
--- dwa foldy lewe i prawe czym się różnią
--- podane wyrażenie obliczyć wynik
-
--- druga grupa zadań
--- funkcje wyższego rzędu
--- napisać funkcje która zwróci inną funkcję jako wynik
--- która przyjmuje inną funkcję jako parametr
--- umieć napisać filter, map, redukcja, który będzie semantycznie prawidłowy
--- implementacja map dla list
-
--- notacje z wyrażeniami lamba
--- napisać funkcję anonimową
--- zapisz w postaci lamby (*)2 -> \x->x*2
--- (\x -> x +1.5) 1 jakiego typu będzie wynik
-
 -- 1. Funkcje anonimowe i currying
 
 f1 = \x -> x - 2
