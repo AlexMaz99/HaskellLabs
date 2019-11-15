@@ -1,17 +1,17 @@
--- 1. funkcja f=2* x przy użyciu sekcji
+-- 1. Funkcja f=2* x przy użyciu sekcji
 
 double_ :: Integer -> Integer
 double_  = (*) 2
 
--- 2. sygnatura funkcji zipWith
+-- 2. Sygnatura funkcji zipWith
 
 --zipWith :: (a->b->c)->[a]->[b]->[c]
 
--- 3. sygnatura funkcji unzip
+-- 3. Sygnatura funkcji unzip
 
 --unzip :: [(a,b)] -> ([a], [b])
 
--- 4. kwadraty parzystych liczb z przedziału [1..10] (list comprehension)
+-- 4. Kwadraty parzystych liczb z przedziału [1..10] (list comprehension)
 
 -- [x^2 | x<-[1..10], x `mod` 2 == 0]
 

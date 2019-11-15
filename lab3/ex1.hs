@@ -29,17 +29,4 @@ f8' = \x -> let y = sqrt x in 2 * y^3 * (y + 1)
 f9 1 = 3
 f9 _ = 0
 
-<<<<<<< HEAD
 f9' = \x -> if x == 1 then 3 else 0
-=======
-f9' = \x -> if x == 1 then 3 else 0
-
---2. Funkcje wyższego rzędu: funkcje jako parametry/argumenty
-
-sum' :: Num a => [a] -> a
-sum' []     = 0
-sum' (x:xs) = x + sum' xs
-
-sumSqr' :: Num a => [a] -> a
-sumSqr' []     = 0
->>>>>>> 358f5788d931f53a38d656cd5fb3eb1d6dbe505a

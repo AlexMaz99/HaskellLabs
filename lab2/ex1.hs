@@ -28,7 +28,7 @@ subtrNFrom5 = (5 -)
 subtr5From_ :: Num a => a -> a
 subtr5From_ = flip (-) 5
 
---operacje na listach
+--operations on lists
 
 isPalindrome :: [Char] -> Bool
 isPalindrome s = if (reverse s == s) then True
@@ -39,7 +39,7 @@ isPalindrome s = if (reverse s == s) then True
 isPrime :: Integral t => t -> Bool
 isPrime n = [i | i<-[2..n-1], n `mod` i == 0] == []
 
---rekursja 1
+--recursion
 
 fib :: (Num a, Eq a) => a -> a
 fib n = if n == 0 || n == 1 then n
@@ -90,7 +90,7 @@ selectEven []     = []
 selectEven (x:xs) = if (x `mod` 2 == 0) then x : selectEven xs
                     else selectEven xs
 
---rekursja ogonowa, akumulator
+--tail recursion, accumulator
 
 sum'2 :: Num a => [a] -> a
 sum'2 xs = loop 0 xs
@@ -112,7 +112,7 @@ length'2 = loop 0
     where loop acc []     = acc
           loop acc (_:xs) = loop(1+acc) xs
 
--- rekursja 4
+-- recursion 2
 
 qSort :: Ord a => [a] -> [a]
 qSort []     = []
@@ -126,7 +126,7 @@ qSort' (x:xs) = qSort (leftPart xs) ++ [x] ++ qSort (rightPart xs)
     where leftPart xs  = filter (<=x) xs
           rightPart xs = filter (>x) xs
 
--- dopasowanie wzorców: guards
+-- patterns: guards
 
 fst2Eq :: Eq a => [a] -> Bool
 fst2Eq (x : y : _) | x == y = True
