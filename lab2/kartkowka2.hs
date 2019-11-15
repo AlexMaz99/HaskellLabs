@@ -3,17 +3,17 @@
 double_ :: Integer -> Integer
 double_  = (*) 2
 
---2. sygnatura funkcji zipWith
+-- 2. sygnatura funkcji zipWith
 
 --zipWith :: (a->b->c)->[a]->[b]->[c]
 
---3. sygnatura funkcji unzip
+-- 3. sygnatura funkcji unzip
 
 --unzip :: [(a,b)] -> ([a], [b])
 
 -- 4. kwadraty parzystych liczb z przedziału [1..10] (list comprehension)
 
---[x^2 | x<-[1..10], x `mod` 2 == 0]
+-- [x^2 | x<-[1..10], x `mod` 2 == 0]
 
 -- 5. Iloczyn elementów listy przy użyciu rekursji ogonowej (akumulatora)
 
@@ -27,16 +27,16 @@ prod' = loop 1
 _plus3 :: Num a => a -> a
 _plus3 = (+) 3
 
---7 Sygnatura uncurry i curry
+-- 7. Sygnatura uncurry i curry
 
 --uncurry :: (a -> b -> c) -> (a,b) -> c
 --curry :: ((a,b) -> c) -> a -> b -> c
 
---8 Lista sześcianów nieparzystych liczb [1..10]
+-- 8. Lista sześcianów nieparzystych liczb [1..10]
 
 --[x^3 | x<-[1..10], x `mod` 2 /= 0]
 
---9 selectEven :: Integral a => [a] -> [a] rekursja ogonowa
+--9. selectEven :: Integral a => [a] -> [a] rekursja ogonowa
 
 selectEven :: Integral a => [a] -> [a]
 selectEven = loop []
