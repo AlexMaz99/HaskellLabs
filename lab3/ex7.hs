@@ -26,3 +26,7 @@ filter' p (x:xs)
 onlyEven' = filter (\x -> x `mod` 2 == 0)
 onlyOdd' = filter (\x -> x `mod` 2 /= 0)
 onlyUpper' = filter (\x -> x == toUpper x)
+
+lengthEven = length (onlyEven [1..10^6])
+lengthEven' = length . onlyEven $ [1..10^6]
+lengthEven'' = length [x | x <- [1..10^6], even x]

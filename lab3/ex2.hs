@@ -1,4 +1,4 @@
---2. Funkcje wyższego rzędu: funkcje jako parametry/argumenty
+-- Funkcje wyższego rzędu: funkcje jako parametry/argumenty
 
 sum' :: Num a => [a] -> a
 sum' []     = 0
@@ -12,7 +12,8 @@ sumWith' :: Num a => (a -> a) -> [a] -> a
 sumWith' f []     = 0
 sumWith' f (x:xs) = f x + sumWith' f xs
 
-sum'' x = sumWith' (\a -> a) x
+sum1 x = sumWith' (\a -> a) x
+sum2 = sumWith' id
 sumSqr1 x = sumWith' (\a -> a^2) x
 sumSqr2 = sumWith' (^2)
 sumCube1 x = sumWith' (\a -> a^3) x

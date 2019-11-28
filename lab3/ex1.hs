@@ -1,4 +1,4 @@
--- 1. Funkcje anonimowe i currying
+-- Funkcje anonimowe i currying
 
 f1 = \x -> x - 2
 
@@ -19,6 +19,12 @@ x5 = \x-> 2 / x
 x6 = \x -> x / 3
 
 x7 = \x -> 4 - x
+
+sqrt' = \x -> sqrt x
+abs' = \x -> if x >=0 then x else (-x)
+log' = \x -> log x
+id' = \x -> x
+const' = \x y -> const x y
 
 f7 x = if x `mod` 2 == 0 then True else False
 f7' = \x -> if x `mod` 2 == 0 then True else False

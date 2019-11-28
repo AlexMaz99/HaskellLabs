@@ -22,3 +22,7 @@ lowerCase' = map' toLower
 doubleElems'' xs = [x * 2 | x <- xs]
 sqrElems'' xs = [x^2 | x <- xs]
 lowerCase'' xs = [toLower x | x <- xs]
+
+f1 = length . filter even $ doubleElems [1..10^7]
+f2 = length . filter even . map (*2) $ [1..10^7]
+f3 = length . filter even $ [2*x | x <- [1..10^7]]

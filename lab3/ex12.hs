@@ -33,3 +33,7 @@ totalDiscount discStr =
     foldl1 (+) .
     map discStr .
     filter (\p -> prodPrices p > 499)
+
+f1 = replicate 2 . product . map (*3) $ zipWith max [4,2] [1,5] -- wynik [180,180]
+
+f2 = sum . takeWhile (<1000) . filter odd . map (^2) $ [1..] --wynik 5456

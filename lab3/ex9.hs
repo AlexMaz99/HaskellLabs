@@ -17,6 +17,7 @@ prodWith' = go 1
     where
         go acc g []     = acc
         go acc g (x:xs) = go (g x * acc) g xs
+        
 foldr' :: (a -> b -> b) -> b -> [a] -> b
 foldr' f z []     = z
 foldr' f z (x:xs) = f x (foldr' f z xs)
