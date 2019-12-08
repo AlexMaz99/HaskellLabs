@@ -9,8 +9,8 @@ type PolarCoord' a = (a,a)
 polarToCartesian' :: Floating a => PolarCoord' a -> CartesianCoord' a
 polarToCartesian' (r,phi) = (r * cos phi, r * sin phi)
 
-newtype CartesianCoord'' a = MkCartesianCoord'' (a,a)
-newtype PolarCoord'' a = MkPolarCoord'' (a,a)
+newtype CartesianCoord'' a = MkCartesianCoord'' (a,a) deriving Show
+newtype PolarCoord'' a = MkPolarCoord'' (a,a) deriving Show
 
 polarToCartesian'' :: Floating a => PolarCoord'' a -> CartesianCoord'' a
 polarToCartesian'' (MkPolarCoord'' (r,phi)) = MkCartesianCoord'' (r * cos phi, r * sin phi)
