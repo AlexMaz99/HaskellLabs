@@ -57,3 +57,21 @@ insert x (NodeBT n rt lt)
     | x == n    = NodeBT n lt rt
     | x < n     = NodeBT n (insert x lt) rt
     | x > n     = NodeBT n lt (insert x rt)
+
+occurs :: Ord a => a -> BinTree a -> Int
+occurs _ EmptyBT = 0
+occurs x (NodeBT n rt lt) = if x==n then 1 else 0 + occurs x lt + occurs x rt
+
+elemOf :: Eq a => a -> BinTree a -> Bool
+elemOf _ EmptyBT = False
+elemOf x (NodeBT n rt lt) = x==n || elemOf x lt || elemOf x rt
+
+minElemOf :: (Ord a, Fractional a) => BinTree a -> a
+minElemOf EmptyBT = 1/0
+minElemOf (NodeBT n rt lt) = min n (min (minElemOf lt) (minElemOf rt))
+
+maxElemOf :: (Ord a, Fractional a) => BinTree a -> a
+maxElemOf EmptyBT = -1/0
+maxElemOf (NodeBT n rt lt) = max n (max (maxElemOf lt) (maxElemOf rt))
+
+-- przykładowe drzewo let x = NodeBT 1 (NodeBT 2 EmptyBT EmptyBT) (NodeBT 3 EmptyBT EmptyBT)

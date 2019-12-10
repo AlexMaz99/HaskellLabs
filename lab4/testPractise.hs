@@ -38,8 +38,24 @@ maxValue :: (Ord a) => Tree a -> a
 maxValue (Leaf a) = a
 maxValue (Node (lt:rt:xs) c) = max c (max (maxValue lt) (maxValue rt)) 
 
+minValue :: (Ord a) => Tree a -> a
+minValue (Leaf a) = a
+minValue (Node (lt:rt:xs) c) = min c (min (minValue lt) (minValue rt)) 
+
 sumAbs :: (Ord a, Num a) => Tree a -> a
 sumAbs (Leaf a) = a 
 sumAbs (Node (lt:rt:xs) c) = abs c + abs (sumAbs lt) + abs (sumAbs rt)
+
+depth :: (Ord a) => Tree a -> Int
+depth (Leaf a) = 1
+depth (Node (lt:rt:xs) _) = 1 + max (depth lt) (depth rt)
+
+elemOf :: (Eq a) => a -> Tree a -> Bool
+elemOf x (Leaf a) = if x==a then True else False
+elemOf x (Node (lt:rt:xs) a) = x==a || (elemOf x lt) || (elemOf x rt)
+
+occurs :: Eq a => a -> Tree a -> Int
+occurs x (Leaf a) = if x==a then 1 else 0
+occurs x (Node (lt:rt:xs) a) = (if x==a then 1 else 0) + occurs x lt + occurs x rt
 
 -- przykładowe drzewo let x = Node [Node [Leaf 8, Leaf 4] 16, Leaf (-4)] (-1)
