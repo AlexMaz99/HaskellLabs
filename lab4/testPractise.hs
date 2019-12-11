@@ -59,3 +59,25 @@ occurs x (Leaf a) = if x==a then 1 else 0
 occurs x (Node (lt:rt:xs) a) = (if x==a then 1 else 0) + occurs x lt + occurs x rt
 
 -- przykładowe drzewo let x = Node [Node [Leaf 8, Leaf 4] 16, Leaf (-4)] (-1)
+
+data MyType = C1 (Bool, Int) | C2 Int | C3 Double
+
+instance Eq MyType where
+    (==) (C1 (x1, y1)) (C1 (x2, y2)) = x1==x2 && y1==y2
+    (==) (C2 i1) (C2 i2) = i1 == i2
+    (==) (C3 i1) (C3 i2) = i1 == i2
+
+instance Show MyType where
+    show (C1 (x, y)) = "C1 " ++ "("++ show x ++ "," ++ show y ++ ")"
+    show (C2 x) = "C2 " ++ show x  
+    show (C3 x) = "C3" ++ show x
+
+data BinTree a = NodeBT (BinTree a) (BinTree a) a | Leaf' a
+
+mapBT :: (a -> b) -> BinTree a -> BinTree b
+mapBT f (Leaf' a) = Leaf' (f a)
+mapBT f (NodeBT lt rt n) = NodeBT (mapBT f lt) (mapBT f rt) (f n)
+
+depthOfBT :: BinTree a -> Int
+depthOfBT (Leaf' _) = 1
+depthOfBT (NodeBT lt rt _) = 1 + max (depthOfBT lt) (depthOfBT rt)
