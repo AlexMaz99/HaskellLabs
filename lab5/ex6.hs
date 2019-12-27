@@ -2,6 +2,9 @@
 
 newtype Box a = MkBox a deriving (Show, Functor)
 
+--instance Functor Box where
+    --fmap f (MkBox x) = MkBox (f x)
+
 data MyList a = EmptyList
               | Cons a (MyList a) deriving (Show, Functor)
         
@@ -14,3 +17,16 @@ data BinTree a = EmptyBT | NodeBT a (BinTree a) (BinTree a) deriving Show
 instance Functor BinTree where
     fmap _ EmptyBT = EmptyBT
     fmap f (NodeBT n lt rt) = NodeBT (f n) (fmap f lt) (fmap f rt)
+
+data Tree2 a = EmptyT2 | Leaf a | Node (Tree2 a) a (Tree2 a) deriving Show
+
+instance Functor Tree2 where
+    fmap _ EmptyT2 = EmptyT2
+    fmap f (Leaf a) = Leaf (f a)
+    fmap f (Node lt a rt) = Node (fmap f lt) (f a) (fmap f rt)
+
+data GTree a = GLeaf a | GNode [GTree a] deriving Show
+
+instance Functor GTree where
+    fmap f (GLeaf a) = GLeaf (f a)
+    fmap f (GNode xs) = GNode (fmap (fmap f) xs)

@@ -35,15 +35,16 @@ dialog = putStr "What is your number? "
             else if odd num
                 then putStrLn "Odd number! That's most pepole's choice ..."
                 else putStrLn "Hm, even number? Unusual!"
---doDialog :: IO ()
---doDialog = do
-    --putStrLn "What is your number? "
-    --num :: Int <- getLine
-    --if num == 7
-        --then putStrLn "Ah, lucky 7!"
-    --else if odd num
-        --then putStrLn "Odd number! That's most pepole's choice ..."
-        --else putStrLn "Hm, even number? Unusual!"
+doDialog :: IO ()
+doDialog = do
+    putStrLn "What is your number?"
+    n <- getLine
+    let num = read n :: Int
+    if num == 7
+        then putStrLn "Ah, lucky 7!"
+    else if odd num
+        then putStrLn "Odd number! That's most pepole's choice ..."
+        else putStrLn "Hm, even number? Unusual!"
 
 doTwoQuestions :: IO ()
 doTwoQuestions = do
