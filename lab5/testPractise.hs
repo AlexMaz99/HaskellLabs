@@ -1,7 +1,10 @@
 -- Functor is a kind o functional representation of different Types which can be mapped over.
 -- Functor is a function which takes a function, say, fmap() and return another function.
 
--- foldr (+) 0 ((*)<$>ZipList[1,2,3]<*>((+1)ZipList[4,5,6]))
+import Control.Applicative
+
+x = foldr (+) 0 ((*) <$> ZipList[1,2,3] <*> ( (+1) <$> ZipList [4,5,6]))
+-- foldr (+) 0 ZipList {getZipList = [5,12,21]} = 38
 
 doFun = do
     putStrLn "Podaj imie: "
