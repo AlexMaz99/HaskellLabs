@@ -12,6 +12,12 @@ infixl 0 >$>
 f >.> g = g . f
 infixl 9 >.>
 
+g1 = (+2) <.< (*3) <$< 5 -- 17 
+g2 = (+2) >.> (*3) <$< 5 --21
+g3 = 5 >$> (+2) <.< (*3) --17
+g4 = 5 >$> (+2) >.> (*3) --21
+g5 = 3 >$> (+2) >$> (+10) --15
+
 safeTail :: [a] -> Maybe [a]
 safeTail [] = Nothing
 safeTail (x:xs) = Just xs
